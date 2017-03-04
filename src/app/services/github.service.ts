@@ -17,11 +17,14 @@ private username = 'armaango';
             .map(res=>res.json());
     }
     getRepos() {
-       return this._http.get(`https://api.github.com/users/${this.username}/repos`)
+       return this._http.get(`https://api.github.com/users/${this.username}/repos?page=2&per_page=30`)
             .map(res=>res.json());
     }
     updateUsername(username:string) {
         this.username=username;
+    }
+    getLanguages(url:string){
+        return this._http.get(url).map(res=>res.json());
     }
 
 }

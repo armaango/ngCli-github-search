@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <form action="">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup)="search()">
+                <input type="text" class="form-control" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup.enter)="search()">
             </div>
         </form>
     </div>
@@ -45,7 +45,7 @@
   <div class="panel-body">
     <div class="row">
         <div class="col-md-12">
-            <div *ngFor="let repo of repos">
+            <div *ngFor="let repo of repos;let i=index">
                 <div class="row">
                     <div class="col-md-9">
                         <h4><a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a></h4>
@@ -53,7 +53,8 @@
                     </div>
                     <div class="col-md-3">
                         <span class="label label-default">{{repo.watchers}} Watchers</span>
-                    <span class="label label-primary">{{repo.forks}} Forks</span> 
+                    <span class="label label-primary">{{repo.forks}} Forks</span>
+                    <!--<span class="label label-primary">Languages:{{languages[i].json()}} </span>-->
                     </div>
                 </div>
                 <hr />
