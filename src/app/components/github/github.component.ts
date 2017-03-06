@@ -36,15 +36,15 @@ user:any;
         for (let repo of repos){
             //console.log(repo.languages_url);
             this._githubService.getLanguages(repo.languages_url).subscribe(language=>{
-                //console.log(language);
                 lang.push(language);
-                //this.languages.push(language);
-                //console.log(lang);
+                this._githubService.storeLanguageMap(language);
+
             })
         }
         this.languages=lang;
+        //str = JSON.stringify(this.languages)
         console.log(this.languages);
-
+        console.log(this._githubService.getLanguageMap());
     }
 
   ngOnInit() {
